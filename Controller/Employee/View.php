@@ -4,8 +4,8 @@ namespace Codilar\Employee\Controller\Employee ;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
-use Magento\Framework\App\ResponseInterface;//??????
-use Magento\Framework\View\Result\PageFactory;//??????
+use Magento\Framework\App\ResponseInterface;
+use Magento\Framework\View\Result\PageFactory;
 
 class View extends  Action
 {
