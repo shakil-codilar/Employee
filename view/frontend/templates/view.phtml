@@ -1,0 +1,47 @@
+<?php
+/**
+ * @var \Codilar\Employee\Block\View $block
+ */
+
+$employees = $block->getAllEmployees();
+
+?>
+<div class="brand-listing">
+    <h1>Our Employees</h1>
+    <?php if (count($employees) > 0): ?>
+        <table>
+            <thead>
+            <tr>
+                <th><?php echo __('Name') ?></th>
+                <th>Is Enabled</th>
+                <th>Action</th>
+            </tr>
+            <?php foreach ($block->getAllEmployees() as $employee): ?>
+                <tr>
+                    <td><?php echo $employee->getName() ?></td>
+
+                    <td><?php echo $employee->getIsActive() ? 'Yes': 'No' ?></td>
+                    <td>
+                            <button><a href="<?php echo $block->getAddDetails() ?>">View</a></button>
+                        <span>
+                            <button><a href="<?php echo $block->getAddUpdate(). 'id/' . $employee->getEntity_id() ?>">Update</a></button>
+                        </span>
+                        <span>
+                            <button><a href="<?php echo $block->getAddDelete(). 'id/' . $employee->getEntity_id() ?>">Delete</a></button>
+<!--                            why /is given after id-->
+                        </span>
+                    </td>
+                </tr>
+
+
+            <?php endforeach; ?>
+            </thead>
+        </table>
+    <?php else: ?>
+        <h3>No Employees available</h3>
+    <?php endif; ?>
+    <form style="padding: 1rem; margin-top: 1rem; border: 1px solid silver" method="POST" action="<?php echo $block->getAddUrl()  ?>" >
+        <h3>Add new Employee details</h3>
+        <button>Add</button>
+    </form>
+

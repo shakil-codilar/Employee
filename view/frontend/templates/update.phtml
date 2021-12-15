@@ -1,0 +1,59 @@
+                      <
+<?php
+/**
+ * @var \Codilar\Employee\Block\View $block
+ */
+$data = $block->getAllData();
+$id = '';
+$name = '';
+$email = '';
+$address = '';
+$is_active ='';
+$phonenumber ='';
+$description ='';
+if ($data->getId()) {
+    $id = $data->getEntityId();
+    $name = $data->getName();
+    $email = $data->getEmail();
+    $address = $data->getAddress();
+    $is_active = $data->getIsActive();
+    $phonenumber= $data->getPhonenumber();
+    $description = $data->getDescription();
+}
+?>
+                      <form style="padding: 1rem; margin-top: 1rem; border: 1px solid silver" method="POST" action="<?php echo $block->getAddSubmit() ?>" >
+                          <h3>Update Employee Detail</h3>
+                          <div>
+                              <label>ID</label>
+                              <input name="id" type="text" value="<?php echo $id ?>" readonly/>
+                          </div>
+                          <div>
+                              <label>Is Enabled</label>
+                              <select name="is_active">
+                                  <option value="<?php echo $is_active ?>"><?php echo $is_active ? 'Yes': 'No' ?></option>
+                                  <option value="0">No</option>
+                                  <option value="1">Yes</option>
+                              </select>
+                          </div>
+                          <div>
+                              <label>Name</label>
+                              <input name="name" type="text"/>
+                          </div>
+                          <div>
+                              <label>Email</label>
+                              <input name="email" type="text" />
+                          </div>
+                          <div>
+                              <label>Phone Number</label>
+                              <input name="phonenumber" type="number"  />
+                          </div>
+                          <div>
+                              <div>
+                                  <label>Address</label>
+                                  <input name="address" type="text" />
+                              </div>
+                              <label>Descripton</label>
+                              <textarea name="description" ></textarea>
+                          </div>
+                          <button>Update</button>
+                      </form>
