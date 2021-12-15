@@ -30,7 +30,7 @@ class Add extends Action
         $this->resourceModel = $resourceModel;
     }
 
-    public function execute()//we are not calling this function but how it is running
+    public function execute()
     {
         $emptyBrand = $this->modelFactory->create();
         $data = $this->getRequest()->getParams();
