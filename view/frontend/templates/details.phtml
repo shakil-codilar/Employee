@@ -3,7 +3,8 @@
  * @var \Codilar\Employee\Block\View $block
  */
 
-$employees = $block->getAllEmployees();
+$data = $block->getAllData();
+
 
 ?>
 <div class="brand-listing">
@@ -18,16 +19,14 @@ $employees = $block->getAllEmployees();
             <th>Address</th>
             <th>Phone Number</th>
         </tr>
-        <?php foreach ($block->getAllEmployees() as $employee): ?>
         <tr>
-            <td><?php echo $employee->getName() ?></td>
-            <td><?php echo $employee->getIsActive() ? 'Yes': 'No' ?></td>
-            <td><?php echo $employee->getDescription() ?></td>
-            <td><?php echo $employee->getEmail() ?></td>
-            <td><?php echo $employee->getAddress() ?></td>
-            <td><?php echo $employee->getPhonenumber() ?></td>
+            <td><?php echo $data->getName() ?></td>
+            <td><?php echo $data->getIsActive() ? 'Yes': 'No' ?></td>
+            <td><?php echo $data->getDescription() ?></td>
+            <td><?php echo $data->getEmail() ?></td>
+            <td><?php echo $data->getAddress() ?></td>
+            <td><?php echo $data->getPhonenumber() ?></td>
         </tr>
-        <?php endforeach; ?>
         </thead>
     </table>
 </div>
